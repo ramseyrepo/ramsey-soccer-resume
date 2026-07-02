@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ramsey Ross — Team Sheet</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&family=Archivo+Narrow:wght@500;600;700&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#0a1a3c;        /* England shorts navy */
+    --navy-2:#14264f;
+    --navy-line:#22345f;
+    --white:#ffffff;
+    --shirt:#f8f9fb;       /* England shirt white, faint cool cast */
+    --red:#ce1124;         /* St George red */
+    --red-deep:#a30d1d;
+    --gold:#c8a24a;        /* 2026 trophy gold */
+    --gold-soft:#e4cf94;
+    --gold-deep:#8a6d1f;   /* deep gold for text on white */
+    --ink:#0a1a3c;
+    --ink-2:#42506d;
+    --ink-3:#8791a5;
+    --line:#e2e5ec;
+    --line-2:#cdd2dd;
+    --pitch:#eef1f6;
+    /* 2026 "We Are 26" multicolor accents */
+    --wc-purple:#7b5cd6;
+    --wc-red:#e33a2e;
+    --wc-orange:#f0722a;
+    --wc-lime:#a8cf3a;
+    --wc-teal:#2bb9a6;
+    --wc-blue:#2f6de0;
+  }
+  *{box-sizing:border-box;}
+  html{-webkit-text-size-adjust:100%;}
+  body{
+    margin:0;
+    font-family:'Archivo',system-ui,sans-serif;
+    background:var(--shirt);
+    color:var(--ink);
+    line-height:1.55;
+    padding:0 0 64px;
+    /* faint 26-grid motif: squares + implied pitch lines */
+    background-image:
+      linear-gradient(90deg, rgba(10,26,60,0.022) 1px, transparent 1px),
+      linear-gradient(rgba(10,26,60,0.022) 1px, transparent 1px);
+    background-size:28px 28px;
+  }
+  .mono{font-family:'Roboto Mono',monospace;}
+  .cond{font-family:'Archivo Narrow','Archivo',sans-serif;}
+  .wrap{max-width:780px;margin:0 auto;padding:0 16px;}
+
+  /* ---- Banner: navy with trophy-gold detailing ---- */
+  .banner{
+    background:var(--navy);
+    color:var(--white);
+    margin:0;
+    position:relative;
+    overflow:hidden;
+    isolation:isolate;
+  }
+  /* subtle gold radial glow, lower-right, like light off the trophy */
+  .banner::before{
+    content:"";position:absolute;inset:0;z-index:0;pointer-events:none;
+    background:radial-gradient(120% 160% at 88% 130%,
+      rgba(200,162,74,0.34) 0%,
+      rgba(200,162,74,0.14) 34%,
+      rgba(200,162,74,0.03) 58%,
+      transparent 72%);
+  }
+  /* fine gold pinstripes, very faint, upper-right */
+  .banner .rings2{
+    position:absolute;inset:0;z-index:0;pointer-events:none;
+    background:repeating-linear-gradient(115deg,
+      transparent 0 22px,
+      rgba(228,207,148,0.06) 22px 24px);
+  }
+  .banner .scrim{display:none;}
+  /* solid gold seam along the bottom edge */
+  .banner::after{
+    content:"";position:absolute;left:0;right:0;bottom:0;height:3px;z-index:3;
+    background:linear-gradient(90deg,var(--gold) 0%,var(--gold-soft) 50%,var(--gold) 100%);
+  }
+  .banner-inner{max-width:780px;margin:0 auto;padding:30px 16px 28px;position:relative;z-index:2;
+    display:flex;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;gap:14px;}
+  .crest{display:flex;align-items:center;gap:14px;}
+  .badge{
+    width:56px;height:56px;flex:none;position:relative;
+    background:var(--white);
+    border-radius:8px;overflow:hidden;
+    display:flex;align-items:center;justify-content:center;
+    filter:drop-shadow(0 3px 6px rgba(0,0,0,0.28));
+  }
+  .badge .cross{
+    width:100%;height:100%;position:absolute;inset:0;
+    background:
+      linear-gradient(var(--red),var(--red)) center/9px 100% no-repeat,
+      linear-gradient(var(--red),var(--red)) center/100% 9px no-repeat;
+    opacity:0.92;
+  }
+  h1{font-family:'Archivo';font-size:34px;font-weight:800;letter-spacing:-0.025em;margin:0;line-height:0.98;text-transform:uppercase;}
+  .tagline{font-size:13px;color:var(--gold-soft);margin-top:5px;letter-spacing:0.02em;font-weight:500;}
+  .contact{font-size:11px;color:rgba(255,255,255,0.72);text-align:right;line-height:1.75;letter-spacing:0.03em;}
+  .contact a{color:rgba(255,255,255,0.72);text-decoration:none;}
+  .contact a:hover{color:var(--gold-soft);}
+  .formation-chip{
+    display:inline-block;font-family:'Roboto Mono';font-size:11px;font-weight:500;
+    color:var(--navy);background:var(--gold-soft);padding:2px 9px;border-radius:2px;
+    letter-spacing:0.08em;margin-bottom:6px;
+  }
+
+  .eyebrow{
+    font-family:'Roboto Mono';font-size:10.5px;color:var(--ink-3);text-transform:uppercase;
+    letter-spacing:0.14em;margin:24px 0 14px;display:flex;align-items:center;gap:10px;
+  }
+  .eyebrow::after{content:"";flex:1;height:1px;background:var(--line);}
+  .legend{display:flex;flex-wrap:wrap;gap:14px;margin:0 0 14px;font-family:'Roboto Mono';font-size:10px;letter-spacing:0.06em;text-transform:uppercase;color:var(--ink-3);}
+  .legend span{display:inline-flex;align-items:center;gap:6px;}
+  .legend i{width:10px;height:10px;border-radius:2px;display:inline-block;}
+
+  /* ---- Pitch ---- */
+  .pitch{
+    background:var(--pitch);
+    border:1px solid var(--line-2);
+    border-radius:4px;
+    padding:26px 12px 6px;
+    position:relative;
+    overflow:hidden;
+  }
+  /* mown stripes */
+  .pitch::before{
+    content:"";position:absolute;inset:0;pointer-events:none;
+    background:repeating-linear-gradient(180deg,rgba(10,26,60,0.018) 0 44px,transparent 44px 88px);
+  }
+  /* pitch markings: halfway + centre circle at top, penalty area + goal at bottom */
+  .pitch .markings{display:none;}
+  .pitch .halfway{position:absolute;top:14px;left:50%;transform:translateX(-50%);width:94%;max-width:none;border-top:1.5px solid rgba(10,26,60,0.10);pointer-events:none;}
+  .pitch .circle{position:absolute;top:14px;left:50%;transform:translateX(-50%);width:209px;height:209px;margin-top:-105px;border:1.5px solid rgba(10,26,60,0.10);border-radius:50%;clip-path:inset(50% 0 0 0);pointer-events:none;}
+  .pitch .cspot{position:absolute;top:13px;left:50%;transform:translateX(-50%);width:4px;height:4px;border-radius:50%;background:rgba(10,26,60,0.14);pointer-events:none;}
+  .pitch .pbox{position:absolute;bottom:0;left:50%;transform:translateX(-50%);width:78%;max-width:520px;height:174px;border:1.5px solid rgba(10,26,60,0.10);border-bottom:none;border-radius:0;pointer-events:none;}
+  .pitch .sixbox{position:absolute;bottom:0;left:50%;transform:translateX(-50%);width:38%;max-width:230px;height:34px;border:1.5px solid rgba(10,26,60,0.10);border-bottom:none;pointer-events:none;}
+  .pitch .pspot{position:absolute;bottom:112px;left:50%;transform:translateX(-50%);width:4px;height:4px;border-radius:50%;background:rgba(10,26,60,0.14);pointer-events:none;}
+  .line{display:flex;justify-content:center;gap:9px;margin:14px 0;flex-wrap:wrap;position:relative;z-index:1;}
+  #gk{margin-top:26px;margin-bottom:0;}
+
+  .player{
+    background:var(--white);
+    border:1px solid var(--line-2);
+    border-top:3px solid var(--navy);
+    border-radius:3px;
+    padding:9px 10px 10px;
+    min-width:108px;max-width:158px;flex:1 1 108px;
+    cursor:pointer;transition:transform .13s, box-shadow .13s, border-color .13s;
+    text-align:center;position:relative;
+  }
+  .player:hover{transform:translateY(-3px);box-shadow:0 6px 16px rgba(10,26,60,0.12);}
+  #fwd .player,#mid .player,#def .player,#gk .player{border-top-color:var(--navy);}
+  .pos{font-family:'Roboto Mono';font-size:9px;letter-spacing:0.14em;color:var(--ink-3);text-transform:uppercase;}
+  .pnm{font-family:'Archivo Narrow';font-size:15px;font-weight:700;line-height:1.14;margin-top:3px;letter-spacing:0.01em;}
+  .pst{font-family:'Roboto Mono';font-size:10px;color:var(--ink-2);margin-top:5px;letter-spacing:-0.01em;}
+  .player.cap{border-top-color:var(--gold);background:linear-gradient(180deg,#fff 0%,#fffdf6 100%);}
+  .player.cap .pnm{color:var(--gold-deep);}
+  .arm{
+    position:absolute;top:-9px;right:-6px;font-family:'Archivo';font-size:9px;font-weight:800;
+    background:var(--gold);color:var(--navy);border-radius:50%;width:20px;height:20px;
+    display:flex;align-items:center;justify-content:center;box-shadow:0 2px 5px rgba(138,109,31,0.45);
+  }
+
+  .section-label{
+    font-family:'Roboto Mono';font-size:10px;letter-spacing:0.14em;text-transform:uppercase;color:var(--ink-3);
+  }
+  .bench{display:flex;flex-wrap:wrap;gap:7px;margin-top:9px;}
+  .sub{
+    background:var(--white);border:1px solid var(--line-2);border-left:3px solid var(--gold);
+    border-radius:0 3px 3px 0;padding:7px 11px;font-family:'Archivo Narrow';font-size:12.5px;font-weight:600;
+    cursor:pointer;transition:transform .13s, box-shadow .13s;letter-spacing:0.01em;
+  }
+  .sub:hover{transform:translateY(-2px);box-shadow:0 4px 12px rgba(10,26,60,0.1);}
+  .sub .sp{font-family:'Roboto Mono';font-size:8px;color:var(--ink-3);margin-right:6px;letter-spacing:0.08em;text-transform:uppercase;}
+  .sub .sd{color:var(--gold);font-weight:700;text-transform:none;}
+
+  .stats{margin-top:20px;display:grid;grid-template-columns:repeat(4,1fr);gap:9px;}
+  .stat{background:var(--navy);color:#fff;border-radius:3px;padding:14px 8px;text-align:center;position:relative;overflow:hidden;}
+  .stat::after{content:"";position:absolute;left:0;bottom:0;width:100%;height:2px;background:var(--gold);}
+  .sv{font-family:'Archivo';font-size:22px;font-weight:800;letter-spacing:-0.02em;}
+  .sl{font-family:'Roboto Mono';font-size:9px;color:var(--gold-soft);text-transform:uppercase;letter-spacing:0.08em;margin-top:4px;}
+
+  .note{
+    margin-top:22px;border:1px solid var(--line);border-left:4px solid var(--navy);
+    background:var(--white);border-radius:0 4px 4px 0;padding:16px 18px;
+    font-size:13.5px;color:var(--ink-2);line-height:1.7;
+  }
+  .note .section-label{display:block;margin-bottom:6px;color:var(--navy);}
+  .note em{color:var(--ink);font-style:italic;}
+
+  .foot{margin-top:14px;font-family:'Roboto Mono';font-size:10px;color:var(--ink-3);text-align:center;letter-spacing:0.05em;}
+  .wc-rule{margin-top:24px;height:2px;border-radius:2px;background:linear-gradient(90deg,transparent 0%,var(--gold) 30%,var(--gold-soft) 50%,var(--gold) 70%,transparent 100%);}
+  .foot .tri{color:var(--gold);}
+
+  /* ---- Modal ---- */
+  .overlay{position:fixed;inset:0;background:rgba(10,26,60,0.6);display:none;align-items:center;justify-content:center;padding:20px;z-index:50;}
+  .overlay.open{display:flex;}
+  .modal{
+    background:var(--white);border-radius:5px;max-width:450px;width:100%;padding:0;overflow:hidden;
+    box-shadow:0 24px 60px rgba(10,26,60,0.4);position:relative;animation:pop .16s ease-out;
+    border-top:4px solid var(--navy);
+  }
+  @keyframes pop{from{transform:scale(.96);opacity:0;}to{transform:scale(1);opacity:1;}}
+  .modal-head{background:var(--navy);color:#fff;padding:18px 22px 16px;position:relative;}
+  .modal-head::after{content:"";position:absolute;left:0;bottom:0;width:100%;height:2px;background:var(--gold);}
+  .modal .mpos{font-family:'Roboto Mono';font-size:10px;letter-spacing:0.14em;text-transform:uppercase;color:var(--gold-soft);}
+  .modal h3{font-family:'Archivo Narrow';font-size:23px;font-weight:700;margin:3px 0 3px;letter-spacing:0.01em;}
+  .modal .mstat{font-family:'Roboto Mono';font-size:12px;color:rgba(255,255,255,0.8);}
+  .modal .mrec{font-size:14px;color:var(--ink);line-height:1.7;padding:18px 22px 22px;}
+  .modal .close{position:absolute;top:12px;right:14px;border:none;background:rgba(255,255,255,0.15);width:28px;height:28px;border-radius:50%;font-size:16px;color:#fff;cursor:pointer;line-height:1;display:flex;align-items:center;justify-content:center;z-index:3;}
+  .modal .close:hover{background:rgba(255,255,255,0.3);}
+
+  @media (max-width:520px){
+    h1{font-size:26px;}
+    .banner-inner{padding:22px 16px 20px;}
+    .contact{text-align:left;}
+    .stats{grid-template-columns:repeat(2,1fr);}
+    .player{min-width:44%;}
+  }
+  @media (prefers-reduced-motion:reduce){
+    .player:hover,.sub:hover{transform:none;}
+    .modal{animation:none;}
+  }
+  @media print{
+    body{background:#fff;background-image:none;}
+    .foot,.overlay{display:none!important;}
+    .player,.sub,.stat,.pitch,.note{break-inside:avoid;}
+    .player:hover{transform:none;box-shadow:none;}
+  }
+</style>
+</head>
+<body>
+
+<div class="banner">
+  <div class="rings2"></div>
+  <div class="scrim"></div>
+  <div class="banner-inner">
+    <div class="crest">
+      <div class="badge" aria-label="England crest"><div class="cross"></div></div>
+      <div>
+        <h1>Ramsey Ross</h1>
+        <div class="tagline">A balanced left (brain) and right (brain) attack</div>
+      </div>
+    </div>
+    <div class="contact">
+      <span class="formation-chip mono">4-3-3</span><br>
+      Honolulu, HI · 808 726 0422<br>
+      <a href="mailto:ramseyross@icloud.com">ramseyross@icloud.com</a><br>
+      <a href="https://linkedin.com/in/ramseyaiross">linkedin.com/in/ramseyaiross</a>
+    </div>
+  </div>
+</div>
+
+<div class="wrap">
+  <div class="eyebrow">Starting lineup</div>
+
+  <div class="pitch">
+    <div class="halfway"></div>
+    <div class="circle"></div>
+    <div class="cspot"></div>
+    <div class="pbox"></div>
+    <div class="sixbox"></div>
+    <div class="pspot"></div>
+    <div class="line" id="fwd"></div>
+    <div class="line" id="mid"></div>
+    <div class="line" id="def"></div>
+    <div class="line" id="gk"></div>
+  </div>
+
+  <div class="eyebrow" style="margin-top:22px;">Substitutes</div>
+  <div class="bench" id="bench"></div>
+
+  <div class="stats" id="stats"></div>
+
+  <div class="note">
+    <span class="section-label">Manager's note</span>
+    A 4-3-3 built to build and run. A decade of sustainability and ESG domain in goal, a back line of
+    data rigor, leadership, roadmap, and budget, a midfield that ships and retains, and a front three led
+    from the centre by product operations. The captain wears the armband because operations is where this
+    squad turns capability into outcomes — process, workflow, and performance, all the way to a data
+    product taken from zero to a 7X exit. Deep bench: cost engineering, workflow automation, and even a
+    self-published children's book that sold 3,000+ copies.
+  </div>
+
+  <div class="wc-rule"></div>
+  <div class="foot">team sheet <span class="tri">✚</span> a companion to the full CV <span class="tri">✚</span> tap any player for their record</div>
+</div>
+
+<div class="overlay" id="overlay">
+  <div class="modal">
+    <button class="close" id="close" aria-label="Close">✕</button>
+    <div class="modal-head">
+      <div class="mpos" id="m-pos"></div>
+      <h3 id="m-nm"></h3>
+      <div class="mstat" id="m-stat"></div>
+    </div>
+    <div class="mrec" id="m-rec"></div>
+  </div>
+</div>
+
+<script>
+(function(){
+  var lines={
+    fwd:[
+      {pos:'LF',nm:'0-1 Experience',st:'Equileap, from scratch',rec:'Striker. Built Equileap\u2019s data-production system from nothing — methodology, tooling, QA, delivery formats — turning an analyst-dependent workflow into a scalable operation. The player you build the team around.'},
+      {pos:'CF',nm:'Product Operations',st:'Process, QA, workflow',rec:'Center-forward and captain. Runs the operational engine: rebuilt data-production workflows to automate QA and fold in AI tooling, ran a tiered QA framework that lifted accuracy 40%, and held vendors to scorecards and SLAs — process design, workflow optimization, and performance tracking end to end. Wears the armband because operations is where this squad turns capability into results.',cap:true},
+      {pos:'RF',nm:'Stable Growth',st:'+10% rev / +10% ARR',rec:'Winger. Grew revenue by finding new use cases and expanding the addressable market, and lifted ARR by reading user-behavior and cold-lead data to surface the right feature gaps.'}
+    ],
+    mid:[
+      {pos:'LM',nm:'AI-Aware Workflows',st:'Moody\u2019s flagship AI tool',rec:'Playmaker. Integrated the ESG dataset into Moody\u2019s flagship AI tool — standardized taxonomy, improved coverage, set metadata standards for accurate LLM retrieval. The modern game runs through here.'},
+      {pos:'CM',nm:'Client Support',st:'90% held in migration',rec:'Box-to-box. Sustained 90% subscriber retention through a delicate platform migration by shipping backward-compatible features before cutting legacy access. Does the unglamorous work that wins ties.'},
+      {pos:'RM',nm:'MVP Development',st:'2 products / 12 months',rec:'Tempo-setter. Launched two products in a year at ISS with MVP-style solutions, turning one-off requests into recurring revenue without adding tech debt.'}
+    ],
+    def:[
+      {pos:'LB',nm:'Roadmap Ownership',st:'$2MM ARR owned',rec:'Full-back. Owned roadmap and delivery end-to-end for investor-facing products at $2MM ARR — reliable, covers ground, links defense to attack.'},
+      {pos:'CB',nm:'Attenion-to-Detail',st:'+40% accuracy',rec:'Center-half. A tiered QA framework lifted accuracy 40%, cutting reported errors to near zero across 20 accounts. Keeps clean sheets.'},
+      {pos:'CB',nm:'Cross-Functional Delivery',st:'End-to-end delivery',rec:'Center-half, the organizer at the back. Owned data products end-to-end across engineering, methodology, and go-to-market — defining coverage and quality standards for datasets distributed via API and embedded across multiple platforms. Marshals everyone in front of the ball.'},
+      {pos:'RB',nm:'Requirements Gathering',st:'\u00a32MM public money',rec:'Full-back. Ran \u00a32MM/yr of public research across ~10 projects — investment cases, RFPs, benefit-cost tracking — and grew the effective budget 15% via co-funding.'}
+    ],
+    gk:[
+      {pos:'GK',nm:'Domain Expertise',st:'10+ yrs in ESG',rec:'A safe pair of hands. Over a decade of experience in the sustainability space — delivered a multi-million pound project on climate change adaptation in the GB rail indusrty and owned the development of Moody\u2019s corporate ESG ratings product.'}
+    ]
+  };
+
+  var overlay=document.getElementById('overlay');
+  function openModal(p){
+    document.getElementById('m-pos').textContent=p.pos;
+    document.getElementById('m-nm').textContent=p.nm;
+    document.getElementById('m-stat').textContent=p.st;
+    document.getElementById('m-rec').textContent=p.rec;
+    overlay.classList.add('open');
+  }
+  function closeModal(){overlay.classList.remove('open');}
+  document.getElementById('close').addEventListener('click',closeModal);
+  overlay.addEventListener('click',function(e){if(e.target===overlay)closeModal();});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')closeModal();});
+
+  Object.keys(lines).forEach(function(k){
+    var wrap=document.getElementById(k);
+    lines[k].forEach(function(p){
+      var el=document.createElement('div');
+      el.className='player'+(p.cap?' cap':'');
+      el.setAttribute('tabindex','0');el.setAttribute('role','button');
+      el.innerHTML='<div class="pos">'+p.pos+'</div><div class="pnm">'+p.nm+'</div><div class="pst">'+p.st+'</div>'+(p.cap?'<div class="arm">C</div>':'');
+      el.addEventListener('click',function(){openModal(p);});
+      el.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();openModal(p);}});
+      wrap.appendChild(el);
+    });
+  });
+
+  var bench=[
+    {nm:'Cost engineering',full:'Cut COGS 33% at Equileap by automating QA and folding in AI tooling; halved data-collection costs at Moody\u2019s ($800k/yr) with vendor scorecards, SLAs, and benchmarks — savings that underwrote the 7X acquisition multiple.',st:'\u2212$1.6M / \u221233% COGS'},
+    {nm:'Stakeholder translation',full:'Doubled adoption of research by turning dense technical reports into targeted briefings — making technical work land as decisions people act on.',st:'2X adoption'},
+    {nm:'Methodology & standards',full:'Defined coverage, methodology, taxonomy, and metadata standards for datasets distributed via API and embedded across multiple platforms.',st:'Taxonomy + metadata'},
+    {nm:'Data visualization',full:'Enhanced flat-file deliverables with interactive dashboards — changing how clients experienced the product and securing $300k in enterprise renewals.',st:'$300k renewals'},
+    {nm:'Workflow automation',full:'Rebuilt the data-production workflow to automate QA and integrate AI tooling, compressing the annual production cycle and cutting COGS.',st:'\u221233% COGS'},
+    {nm:'Vendor management',full:'Redesigned vendor sourcing with scorecards, SLAs, and quality benchmarks that brought external output up to internal standards.',st:'Scorecards + SLAs'},
+    {nm:'Team restructuring',full:'Reduced OPEX 20% through vendor consolidation and team restructuring — outcomes that supported the 7X acquisition multiple.',st:'\u221220% OPEX'},
+    {nm:'Procurement / RFPs',full:'Ran competitive procurement across a ~10-project portfolio — writing investment cases, issuing RFPs, and tracking delivery against benefit-cost benchmarks.',st:'\u00a32MM allocated'},
+    {nm:'Co-funding partnerships',full:'Grew the effective program budget 15% through industry co-funding partnerships.',st:'+15% budget'},
+    {nm:'Self-publishing',full:'Wrote and self-published a children\u2019s picture book, Angus the Golf Cow (2015), selling 3,000+ copies — end-to-end product creation, distribution, and audience-building.',st:'3,000+ sold'}
+  ];
+  var bw=document.getElementById('bench');
+  bench.forEach(function(b){
+    var el=document.createElement('div');
+    el.className='sub';
+    el.setAttribute('tabindex','0');el.setAttribute('role','button');
+    el.innerHTML='<span class="sp">Sub</span>'+b.nm+' <span class="sd">'+b.st+'</span>';
+    el.addEventListener('click',function(){openModal({pos:'Substitute',nm:b.nm,st:b.st,rec:b.full});});
+    el.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();openModal({pos:'Substitute',nm:b.nm,st:b.st,rec:b.full});}});
+    bw.appendChild(el);
+  });
+
+  var stats=[
+    {sv:'10+ yrs',sl:'Top-flight'},
+    {sv:'7X',sl:'Exit multiple'},
+    {sv:'$1.6M+',sl:'Cost saved'},
+    {sv:'90%',sl:'Retention held'}
+  ];
+  var sw=document.getElementById('stats');
+  stats.forEach(function(s){
+    var el=document.createElement('div');
+    el.className='stat';
+    el.innerHTML='<div class="sv">'+s.sv+'</div><div class="sl">'+s.sl+'</div>';
+    sw.appendChild(el);
+  });
+})();
+</script>
+</body>
+</html>
