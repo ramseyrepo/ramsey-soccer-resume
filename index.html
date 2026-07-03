@@ -148,9 +148,8 @@
   .sub{
     background:var(--white);border:1px solid var(--line-2);border-left:3px solid var(--gold);
     border-radius:0 3px 3px 0;padding:7px 11px;font-family:'Archivo Narrow','Archivo',sans-serif;font-size:12.5px;font-weight:600;
-    cursor:pointer;transition:transform .13s, box-shadow .13s;letter-spacing:0.01em;
+    letter-spacing:0.01em;
   }
-  .sub:hover{transform:translateY(-2px);box-shadow:0 4px 12px rgba(10,26,60,0.1);}
   .sub .sp{font-family:'Roboto Mono',monospace;font-size:8px;color:var(--ink-3);margin-right:6px;letter-spacing:0.08em;text-transform:uppercase;}
   .sub .sd{color:var(--gold);font-weight:700;text-transform:none;}
 
@@ -160,7 +159,6 @@
     font-size:13.5px;color:var(--ink-2);line-height:1.7;
   }
   .note .section-label{display:block;margin-bottom:6px;color:var(--navy);}
-  .note em{color:var(--ink);font-style:italic;}
 
   .foot{margin-top:14px;font-family:'Roboto Mono',monospace;font-size:10px;color:var(--ink-3);text-align:center;letter-spacing:0.05em;}
   .wc-rule{margin-top:24px;height:2px;border-radius:2px;background:linear-gradient(90deg,transparent 0%,var(--gold) 30%,var(--gold-soft) 50%,var(--gold) 70%,transparent 100%);}
@@ -190,7 +188,7 @@
     .player{min-width:44%;}
   }
   @media (prefers-reduced-motion:reduce){
-    .player:hover,.sub:hover{transform:none;}
+    .player:hover{transform:none;}
     .modal{animation:none;}
   }
   @media print{
@@ -241,14 +239,19 @@
   <div class="eyebrow" style="margin-top:22px;">Substitutes</div>
   <div class="bench" id="bench"></div>
 
-
   <div class="note">
     <span class="section-label">Scouting Report</span>
-    Typically plays a 4-3-3. A decade of sustainability and ESG domain in goal, a back line of
-    data rigor, leadership, roadmap, and budget, a midfield that ships and retains, and a front three led
-    from the centre by product operations. The captain wears the armband because operations is where this
-    squad turns capability into outcomes — process, workflow, and performance, all the way to a data
-    product taken from zero to a 7X exit.
+    A product-led side with a decade in ESG and sustainability, comfortable building both 0-1 and 1-n.
+    Known for operational rigor — turning ad hoc, analyst-dependent processes into systems that scale,
+    with the results to show for it: a QA framework that lifted accuracy 40%, and a platform migration
+    that retained 90% of clients. Play moves naturally across engineering, product, and go-to-market,
+    and the squad is at its best in fast-moving teams with room to build.
+    <br><br>
+    Which is why the Head of ESG Operations role at LoneReport is a natural fit: it asks for someone to
+    own day-to-day workflow for ESG compliance projects, keep process, performance, and delivery on
+    track, and coordinate across Sales, Product, and Customer Success — exactly the game this side plays.
+    A decade in ESG, hands-on with AI tooling, and most effective in a founding-team environment with the
+    autonomy to build. Happy to talk about how I'd line up for you.
   </div>
 
   <div class="wc-rule"></div>
@@ -272,19 +275,19 @@
   var lines={
     fwd:[
       {pos:'LF',nm:'0-1 Experience',st:'End-to-end oversight',rec:'Equileap (2018-20): Built a data-production workflow — methodology definition, collection tooling, QA processes, delivery formats — turning an analyst-dependent workflow into a scalable operation.'},
-      {pos:'CF',nm:'Product Mindset',st:'Process, QA, workflow',rec:'Center-forward and captain. Runs the operational engine: rebuilt data-production workflows to automate QA and fold in AI tooling, ran a tiered QA framework that lifted accuracy 40%, and held vendors to scorecards and SLAs — process design, workflow optimization, and performance tracking end to end. Wears the armband because operations is where this squad turns capability into results.',cap:true},
-      {pos:'RF',nm:'Deliberate Growth',st:'Created revenue streams',rec:'Equileap (2025): Grew revenue by 10% by identifying and building for new use cases, expanding the total addressable market.'}
+      {pos:'CF',nm:'Product Mindset',st:'Process, QA, workflow',rec:'Moody\u2019s (2021-24): Built a tiered QA framework across the ESG ratings production process that lifted data accuracy 40% — designing the checks, workflows, and performance tracking that turned attention to detail into a repeatable system.',cap:true},
+      {pos:'RF',nm:'Deliberate Growth',st:'Created revenue streams',rec:'Equileap (2025-26): Grew revenue by 10% by identifying and building for new use cases, expanding the total addressable market.'}
     ],
     mid:[
-      {pos:'LM',nm:'AI-Aware Workflows',st:'Leveraging LLMs',rec:'Playmaker. Integrated the ESG dataset into Moody\u2019s flagship AI tool — standardized taxonomy, improved coverage, set metadata standards for accurate LLM retrieval. The modern game runs through here.'},
+      {pos:'LM',nm:'AI-Aware Workflows',st:'Leveraging LLMs',rec:'Equileap (2025-26): Cut COGS by 33% by rebuilding the data-production workflow to automate QA and integrate AI tooling, compressing the annual production cycle.'},
       {pos:'CM',nm:'Customer Success',st:'User focused',rec:'Moody\u2019s (2021-24): Sustained 90% subscriber retention across legacy client bases by sequencing the platform migration carefully, shipping backward-compatible features before cutting access.'},
       {pos:'RM',nm:'MVP Development',st:'Getting to market',rec:'ISS (2020-21): Launched two new products in 12 months by creating MVP-style solutions, turning one-off requests into recurring revenue in new markets and facilitating development without adding tech debt.'}
     ],
     def:[
       {pos:'LB',nm:'Roadmap Ownership',st:'Experienced product strategist',rec:'ISS (2020-21): Owned roadmap and delivery for a suite of investor-facing platform products generating $2MM ARR.'},
       {pos:'CB',nm:'Program Management',st:'Navigating complexity',rec:'RSSB (2015-19): Managed the allocation of an annual budget of £2MM of public money, representing a portfolio of ~10 concurrent projects — wrote investment cases, issued RFPs, and tracked delivery against benefit-cost benchmarks.'},
-      {pos:'CB',nm:'X-Functional Delivery',st:'Leading without authority',rec:'Moody\u2019s (2021-24): Worked cross-functionally to progress the ESG ratings data product: defined coverage, methodology, and quality standards for a dataset distributed via API and embedded across multiple platforms.'},
-      {pos:'RB',nm:'Data Vizualization',st:'Maximizing use cases',rec:'Equileap (2018-20): Enhanced static flat-file deliverables with interactive dashboards, changing how clients experienced the product and securing $300k in enterprise renewals.'}
+      {pos:'CB',nm:'X-Functional Confidence',st:'Connecting teams',rec:'Moody\u2019s (2021-24): Worked cross-functionally to progress the ESG ratings data product: defined coverage, methodology, and quality standards for a dataset distributed via API and embedded across multiple platforms.'},
+      {pos:'RB',nm:'Sales Support',st:'Maximizing use cases',rec:'Equileap (2018-20): Enhanced static flat-file deliverables with interactive dashboards, changing how clients experienced the product and securing $300k in enterprise renewals.'}
     ],
     gk:[
       {pos:'GK',nm:'Domain Expertise',st:'10+ years in ESG',rec:'A safe pair of hands (2015-Present): Over a decade of experience in the sustainability space — delivered a multi-million pound project on climate change adaptation in the GB rail industry and owned the development of Moody\u2019s corporate ESG ratings product.'}
@@ -318,21 +321,16 @@
   });
 
   var bench=[
-    {nm:'Stakeholder translation',full:'Doubled adoption of research by turning dense technical reports into targeted briefings — making technical work land as decisions people act on.',st:'2X adoption'},
-    {nm:'Data visualization',full:'Enhanced flat-file deliverables with interactive dashboards — changing how clients experienced the product and securing $300k in enterprise renewals.',st:'$300k renewals'},
-    {nm:'Workflow automation',full:'Rebuilt the data-production workflow to automate QA and integrate AI tooling, compressing the annual production cycle and cutting COGS.',st:'\u221233% COGS'},
-    {nm:'Vendor management',full:'Redesigned vendor sourcing with scorecards, SLAs, and quality benchmarks that brought external output up to internal standards.',st:'Scorecards + SLAs'},
-    {nm:'Procurement / RFPs',full:'Ran competitive procurement across a ~10-project portfolio — writing investment cases, issuing RFPs, and tracking delivery against benefit-cost benchmarks.',st:'\u00a32MM allocated'},
-    {nm:'Self-publishing',full:'Wrote and self-published a children\u2019s picture book, Angus the Golf Cow (2015), selling 3,000+ copies — end-to-end product creation, distribution, and audience-building.',st:'3,000+ sold'}
+    {nm:'Stakeholder translation',st:'2X adoption'},
+    {nm:'Vendor management',st:'Scorecards + SLAs'},
+    {nm:'Procurement / RFPs',st:'\u00a32MM allocated'},
+    {nm:'Self-publishing',st:'3,000+ sold'}
   ];
   var bw=document.getElementById('bench');
   bench.forEach(function(b){
     var el=document.createElement('div');
     el.className='sub';
-    el.setAttribute('tabindex','0');el.setAttribute('role','button');
     el.innerHTML='<span class="sp">Sub</span>'+b.nm+' <span class="sd">'+b.st+'</span>';
-    el.addEventListener('click',function(){openModal({pos:'Substitute',nm:b.nm,st:b.st,rec:b.full});});
-    el.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();openModal({pos:'Substitute',nm:b.nm,st:b.st,rec:b.full});}});
     bw.appendChild(el);
   });
 })();
