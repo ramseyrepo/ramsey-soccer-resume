@@ -10,30 +10,29 @@
 <style>
   :root{
     --navy:#0a1a3c;
-    --white:#ffffff;
+    --white:#fff;
     --shirt:#f8f9fb;
     --red:#ce1124;
     --gold:#c8a24a;
     --gold-soft:#e4cf94;
-    --ink:#0a1a3c;
     --ink-2:#42506d;
     --ink-3:#8791a5;
     --line:#e2e5ec;
     --line-2:#cdd2dd;
     --pitch:#eef1f6;
+    --mark:rgba(10,26,60,0.10);
   }
   *{box-sizing:border-box;}
-  html{-webkit-text-size-adjust:100%;}
   body{
     margin:0;
     font-family:'Archivo',system-ui,sans-serif;
     background:var(--shirt);
-    color:var(--ink);
+    color:var(--navy);
     line-height:1.55;
     padding:0 0 64px;
     background-image:
-      linear-gradient(90deg, rgba(10,26,60,0.022) 1px, transparent 1px),
-      linear-gradient(rgba(10,26,60,0.022) 1px, transparent 1px);
+      linear-gradient(90deg, rgba(10,26,60,0.02) 1px, transparent 1px),
+      linear-gradient(rgba(10,26,60,0.02) 1px, transparent 1px);
     background-size:28px 28px;
   }
   .wrap{max-width:780px;margin:0 auto;padding:0 16px;}
@@ -42,7 +41,6 @@
   .banner{
     background:var(--navy);
     color:var(--white);
-    margin:0;
     position:relative;
     overflow:hidden;
     isolation:isolate;
@@ -72,11 +70,10 @@
     width:56px;height:56px;flex:none;position:relative;
     background:var(--white);
     border-radius:8px;overflow:hidden;
-    display:flex;align-items:center;justify-content:center;
-    filter:drop-shadow(0 3px 6px rgba(0,0,0,0.28));
+    box-shadow:0 3px 6px rgba(0,0,0,0.28);
   }
   .badge .cross{
-    width:100%;height:100%;position:absolute;inset:0;
+    position:absolute;inset:0;
     background:
       linear-gradient(var(--red),var(--red)) center/9px 100% no-repeat,
       linear-gradient(var(--red),var(--red)) center/100% 9px no-repeat;
@@ -112,12 +109,16 @@
     content:"";position:absolute;inset:0;pointer-events:none;
     background:repeating-linear-gradient(180deg,rgba(10,26,60,0.018) 0 44px,transparent 44px 88px);
   }
-  .pitch .halfway{position:absolute;top:14px;left:50%;transform:translateX(-50%);width:94%;border-top:1.5px solid rgba(10,26,60,0.10);pointer-events:none;}
-  .pitch .circle{position:absolute;top:14px;left:50%;transform:translateX(-50%);width:209px;height:209px;margin-top:-105px;border:1.5px solid rgba(10,26,60,0.10);border-radius:50%;clip-path:inset(50% 0 0 0);pointer-events:none;}
-  .pitch .cspot{position:absolute;top:13px;left:50%;transform:translateX(-50%);width:4px;height:4px;border-radius:50%;background:rgba(10,26,60,0.14);pointer-events:none;}
-  .pitch .pbox{position:absolute;bottom:0;left:50%;transform:translateX(-50%);width:78%;max-width:520px;height:174px;border:1.5px solid rgba(10,26,60,0.10);border-bottom:none;pointer-events:none;}
-  .pitch .sixbox{position:absolute;bottom:0;left:50%;transform:translateX(-50%);width:38%;max-width:230px;height:34px;border:1.5px solid rgba(10,26,60,0.10);border-bottom:none;pointer-events:none;}
-  .pitch .pspot{position:absolute;bottom:112px;left:50%;transform:translateX(-50%);width:4px;height:4px;border-radius:50%;background:rgba(10,26,60,0.14);pointer-events:none;}
+  /* pitch markings share centering + inertness */
+  .halfway,.circle,.cspot,.pbox,.sixbox,.pspot{
+    position:absolute;left:50%;transform:translateX(-50%);pointer-events:none;
+  }
+  .halfway{top:14px;width:94%;border-top:1.5px solid var(--mark);}
+  .circle{top:14px;width:210px;height:210px;margin-top:-105px;border:1.5px solid var(--mark);border-radius:50%;clip-path:inset(50% 0 0 0);}
+  .cspot{top:13px;width:4px;height:4px;border-radius:50%;background:rgba(10,26,60,0.14);}
+  .pbox{bottom:0;width:78%;max-width:520px;height:174px;border:1.5px solid var(--mark);border-bottom:none;}
+  .sixbox{bottom:0;width:38%;max-width:230px;height:34px;border:1.5px solid var(--mark);border-bottom:none;}
+  .pspot{bottom:112px;width:4px;height:4px;border-radius:50%;background:rgba(10,26,60,0.14);}
   .line{display:flex;justify-content:center;gap:9px;margin:14px 0;flex-wrap:wrap;position:relative;z-index:1;}
   #gk{margin-top:26px;margin-bottom:0;}
 
@@ -128,13 +129,13 @@
     border-radius:3px;
     padding:9px 10px 10px;
     min-width:108px;max-width:158px;flex:1 1 108px;
-    cursor:pointer;transition:transform .13s, box-shadow .13s, border-color .13s;
+    cursor:pointer;transition:transform .13s, box-shadow .13s;
     text-align:center;position:relative;
   }
   .player:hover{transform:translateY(-3px);box-shadow:0 6px 16px rgba(10,26,60,0.12);}
   .pos{font-family:'Roboto Mono',monospace;font-size:9px;letter-spacing:0.14em;color:var(--ink-3);text-transform:uppercase;}
   .pnm{font-family:'Archivo Narrow','Archivo',sans-serif;font-size:15px;font-weight:700;line-height:1.14;margin-top:3px;letter-spacing:0.01em;}
-  .pst{font-family:'Roboto Mono',monospace;font-size:10px;color:var(--ink-2);margin-top:5px;letter-spacing:-0.01em;}
+  .pst{font-family:'Roboto Mono',monospace;font-size:10px;color:var(--ink-2);margin-top:5px;}
   .arm{
     position:absolute;top:-9px;right:-6px;font-size:9px;font-weight:800;
     background:var(--gold);color:var(--navy);border-radius:50%;width:20px;height:20px;
@@ -151,7 +152,6 @@
     letter-spacing:0.01em;
   }
   .sub .sp{font-family:'Roboto Mono',monospace;font-size:8px;color:var(--ink-3);margin-right:6px;letter-spacing:0.08em;text-transform:uppercase;}
-  .sub .sd{color:var(--gold);font-weight:700;text-transform:none;}
 
   .note{
     margin-top:22px;border:1px solid var(--line);border-left:4px solid var(--navy);
@@ -167,17 +167,17 @@
   .overlay{position:fixed;inset:0;background:rgba(10,26,60,0.6);display:none;align-items:center;justify-content:center;padding:20px;z-index:50;}
   .overlay.open{display:flex;}
   .modal{
-    background:var(--white);border-radius:5px;max-width:450px;width:100%;padding:0;overflow:hidden;
+    background:var(--white);border-radius:5px;max-width:450px;width:100%;overflow:hidden;
     box-shadow:0 24px 60px rgba(10,26,60,0.4);position:relative;animation:pop .16s ease-out;
     border-top:4px solid var(--navy);
   }
   @keyframes pop{from{transform:scale(.96);opacity:0;}to{transform:scale(1);opacity:1;}}
   .modal-head{background:var(--navy);color:#fff;padding:18px 22px 16px;position:relative;}
   .modal-head::after{content:"";position:absolute;left:0;bottom:0;width:100%;height:2px;background:var(--gold);}
-  .modal .mpos{font-family:'Roboto Mono',monospace;font-size:10px;letter-spacing:0.14em;text-transform:uppercase;color:var(--gold-soft);}
-  .modal h3{font-family:'Archivo Narrow','Archivo',sans-serif;font-size:23px;font-weight:700;margin:3px 0 3px;letter-spacing:0.01em;}
-  .modal .mstat{font-family:'Roboto Mono',monospace;font-size:12px;color:rgba(255,255,255,0.8);}
-  .modal .mrec{font-size:14px;color:var(--ink);line-height:1.7;padding:18px 22px 22px;}
+  .mpos{font-family:'Roboto Mono',monospace;font-size:10px;letter-spacing:0.14em;text-transform:uppercase;color:var(--gold-soft);}
+  .modal h3{font-family:'Archivo Narrow','Archivo',sans-serif;font-size:23px;font-weight:700;margin:3px 0;letter-spacing:0.01em;}
+  .mstat{font-family:'Roboto Mono',monospace;font-size:12px;color:rgba(255,255,255,0.8);}
+  .mrec{font-size:14px;color:var(--navy);line-height:1.7;padding:18px 22px 22px;}
   .modal .close{position:absolute;top:12px;right:14px;border:none;background:rgba(255,255,255,0.15);width:28px;height:28px;border-radius:50%;font-size:16px;color:#fff;cursor:pointer;line-height:1;display:flex;align-items:center;justify-content:center;z-index:3;}
   .modal .close:hover{background:rgba(255,255,255,0.3);}
 
@@ -236,12 +236,12 @@
     <div class="line" id="gk"></div>
   </div>
 
-  <div class="eyebrow" style="margin-top:22px;">Substitutes</div>
+  <div class="eyebrow">Substitutes</div>
   <div class="bench" id="bench"></div>
 
   <div class="note">
     <span class="section-label">Scouting Report</span>
-    Sets up in a 4-3-3, with an uncommon balance on the left and right sides. Builds quickly but deliberately—utilizing a core with the right blend of aptitude and experience, while letting the forward-thinking elements create plenty of opportunities.
+    Sets up in a 4-3-3, with equal strength on the left and right sides. Builds quickly but deliberately—utilizing a solid core with that blends aptitude and experience, and letting the forward-thinking elements create plenty of opportunities.
   </div>
 
   <div class="wc-rule"></div>
@@ -261,69 +261,68 @@
 </div>
 
 <script>
-(function(){
-  var lines={
-    fwd:[
-      {pos:'LF',nm:'0-1 Experience',st:'End-to-end oversight',rec:'Equileap (2018-20): Built a data-production workflow — methodology definition, collection tooling, QA processes, delivery formats — turning an analyst-dependent workflow into a scalable operation.'},
-      {pos:'CF',nm:'Product Mindset',st:'Continuous improvement',rec:'Attention to detail without attachment to detail (2015-Present): Continuously looking to add value, with features, fixes, under-the-hood enhancements, or process improvements.',cap:true},
-      {pos:'RF',nm:'Deliberate Growth',st:'Created revenue streams',rec:'Equileap (2025-26): Grew revenue by 10% by identifying and building for new use cases, expanding the total addressable market.'}
-    ],
-    mid:[
-      {pos:'LM',nm:'AI-Aware Workflows',st:'Leveraging LLMs',rec:'Equileap (2025-26): Cut COGS by 33% by rebuilding the data-production workflow to automate QA and integrate AI tooling, compressing the annual production cycle.'},
-      {pos:'CM',nm:'Customer Success',st:'User focused',rec:'Moody\u2019s (2021-24): Sustained 90% subscriber retention across legacy client bases by sequencing the platform migration carefully, shipping backward-compatible features before cutting access.'},
-      {pos:'RM',nm:'MVP Development',st:'Getting to market',rec:'ISS (2020-21): Launched two new products in 12 months by creating MVP-style solutions, turning one-off requests into recurring revenue in new markets and facilitating development without adding tech debt.'}
-    ],
-    def:[
-      {pos:'LB',nm:'Roadmap Ownership',st:'Experienced product strategist',rec:'ISS (2020-21): Owned roadmap and delivery for a suite of investor-facing platform products generating $2MM ARR.'},
-      {pos:'CB',nm:'Program Management',st:'Navigating complexity',rec:'RSSB (2015-19): Managed the allocation of an annual budget of £2MM of public money, representing a portfolio of ~10 concurrent projects — wrote investment cases, issued RFPs, and tracked delivery against benefit-cost benchmarks.'},
-      {pos:'CB',nm:'X-Functional Confidence',st:'Connecting teams',rec:'Moody\u2019s (2021-24): Worked cross-functionally to progress the ESG ratings data product: defined coverage, methodology, and quality standards for a dataset distributed via API and embedded across multiple platforms.'},
-      {pos:'RB',nm:'Sales Support',st:'Maximizing use cases',rec:'Equileap (2018-20): Enhanced static flat-file deliverables with interactive dashboards, changing how clients experienced the product and securing $300k in enterprise renewals.'}
-    ],
-    gk:[
-      {pos:'GK',nm:'Domain Expertise',st:'10+ years in ESG',rec:'A safe pair of hands (2015-Present): Over a decade of experience in the sustainability space — delivered a multi-million pound project on climate change adaptation in the GB rail industry and owned the development of Moody\u2019s corporate ESG ratings product.'}
-    ]
-  };
+const lines = {
+  fwd: [
+    {pos:'LF', nm:'0-1 Experience', st:'End-to-end oversight', rec:'Equileap (2018-20): Built a data-production workflow — methodology definition, collection tooling, QA processes, delivery formats — turning an analyst-dependent workflow into a scalable operation.'},
+    {pos:'CF', nm:'Product Mindset', st:'Continuous improvement', rec:'Attention to detail without attachment to detail (2015-Present): Continuously looking to add value with new features, bug fixes, under-the-hood enhancements, or process improvements.', cap:true},
+    {pos:'RF', nm:'Deliberate Growth', st:'Created revenue streams', rec:'Equileap (2025-26): Grew revenue by 10% by identifying and building for new use cases, expanding the total addressable market.'}
+  ],
+  mid: [
+    {pos:'LM', nm:'AI-Aware Workflows', st:'Leveraging LLMs', rec:'Equileap (2025-26): Cut COGS by 33% by rebuilding the data-production workflow to automate QA and integrate AI tooling, compressing the annual production cycle.'},
+    {pos:'CM', nm:'Customer Success', st:'User focused', rec:'Moody’s (2021-24): Sustained 90% subscriber retention across legacy client bases by sequencing the platform migration carefully, shipping backward-compatible features before cutting access.'},
+    {pos:'RM', nm:'MVP Development', st:'Getting to market', rec:'ISS (2020-21): Launched two new products in 12 months by creating MVP-style solutions, turning one-off requests into recurring revenue in new markets and facilitating development without adding tech debt.'}
+  ],
+  def: [
+    {pos:'LB', nm:'Roadmap Ownership', st:'Experienced product strategist', rec:'ISS (2020-21): Owned roadmap and delivery for a suite of investor-facing platform products generating $2MM ARR.'},
+    {pos:'CB', nm:'Program Management', st:'Navigating complexity', rec:'RSSB (2015-19): Managed the allocation of an annual budget of £2MM of public money, representing a portfolio of ~10 concurrent projects — wrote investment cases, issued RFPs, and tracked delivery against benefit-cost benchmarks.'},
+    {pos:'CB', nm:'X-Functional Confidence', st:'Connecting teams', rec:'Moody’s (2021-24): Worked cross-functionally to progress the ESG ratings data product: defined coverage, methodology, and quality standards for a dataset distributed via API and embedded across multiple platforms.'},
+    {pos:'RB', nm:'Sales Support', st:'Maximizing use cases', rec:'Equileap (2018-20): Enhanced static flat-file deliverables with interactive dashboards, changing how clients experienced the product and securing $300k in enterprise renewals.'}
+  ],
+  gk: [
+    {pos:'GK', nm:'Domain Expertise', st:'10+ years in ESG', rec:'A safe pair of hands (2015-Present): Over a decade of experience in the sustainability space — delivered a multi-million pound project on climate change adaptation in the GB rail industry and owned the development of Moody’s corporate ESG ratings product.'}
+  ]
+};
 
-  var overlay=document.getElementById('overlay');
-  function openModal(p){
-    document.getElementById('m-pos').textContent=p.pos;
-    document.getElementById('m-nm').textContent=p.nm;
-    document.getElementById('m-stat').textContent=p.st;
-    document.getElementById('m-rec').textContent=p.rec;
-    overlay.classList.add('open');
-  }
-  function closeModal(){overlay.classList.remove('open');}
-  document.getElementById('close').addEventListener('click',closeModal);
-  overlay.addEventListener('click',function(e){if(e.target===overlay)closeModal();});
-  document.addEventListener('keydown',function(e){if(e.key==='Escape')closeModal();});
+const bench = ['Communication', 'Line management', 'Procurement / RFPs'];
 
-  Object.keys(lines).forEach(function(k){
-    var wrap=document.getElementById(k);
-    lines[k].forEach(function(p){
-      var el=document.createElement('div');
-      el.className='player';
-      el.setAttribute('tabindex','0');el.setAttribute('role','button');
-      el.innerHTML='<div class="pos">'+p.pos+'</div><div class="pnm">'+p.nm+'</div><div class="pst">'+p.st+'</div>'+(p.cap?'<div class="arm">C</div>':'');
-      el.addEventListener('click',function(){openModal(p);});
-      el.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();openModal(p);}});
-      wrap.appendChild(el);
+const overlay = document.getElementById('overlay');
+
+function openModal(p) {
+  document.getElementById('m-pos').textContent = p.pos;
+  document.getElementById('m-nm').textContent = p.nm;
+  document.getElementById('m-stat').textContent = p.st;
+  document.getElementById('m-rec').textContent = p.rec;
+  overlay.classList.add('open');
+}
+const closeModal = () => overlay.classList.remove('open');
+
+document.getElementById('close').addEventListener('click', closeModal);
+overlay.addEventListener('click', e => { if (e.target === overlay) closeModal(); });
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+
+for (const [id, players] of Object.entries(lines)) {
+  const row = document.getElementById(id);
+  for (const p of players) {
+    const el = document.createElement('div');
+    el.className = 'player';
+    el.tabIndex = 0;
+    el.setAttribute('role', 'button');
+    el.innerHTML = `<div class="pos">${p.pos}</div><div class="pnm">${p.nm}</div><div class="pst">${p.st}</div>${p.cap ? '<div class="arm">C</div>' : ''}`;
+    el.addEventListener('click', () => openModal(p));
+    el.addEventListener('keydown', e => {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openModal(p); }
     });
-  });
+    row.appendChild(el);
+  }
+}
 
-  var bench=[
-    {nm:'Stakeholder translation',st:'2X adoption'},
-    {nm:'Vendor management',st:'Scorecards + SLAs'},
-    {nm:'Procurement / RFPs',st:'\u00a32MM allocated'},
-    {nm:'Self-publishing',st:'3,000+ sold'}
-  ];
-  var bw=document.getElementById('bench');
-  bench.forEach(function(b){
-    var el=document.createElement('div');
-    el.className='sub';
-    el.innerHTML='<span class="sp">Sub</span>'+b.nm+' <span class="sd">'+b.st+'</span>';
-    bw.appendChild(el);
-  });
-})();
+const bw = document.getElementById('bench');
+for (const name of bench) {
+  const el = document.createElement('div');
+  el.className = 'sub';
+  el.innerHTML = `<span class="sp">Sub</span>${name}`;
+  bw.appendChild(el);
+}
 </script>
 </body>
 </html>
